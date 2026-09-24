@@ -1,0 +1,61 @@
+[worldserver]
+
+########################################
+# Chronomancer Noriol module configuration
+########################################
+#
+#    Chronomancer.EnableModule
+#        Description: Enable Chronomancer Noriol's services.
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+
+Chronomancer.EnableModule = 1
+
+#
+#    Chronomancer.EnableGoldCost
+#        Description: Charge gold for Noriol's services (instance reset, bot boost, Outland skip).
+#                     When disabled, all services are free.
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+
+Chronomancer.EnableGoldCost = 1
+
+#
+#    Chronomancer.GoldCostAmount
+#        Description: Gold cost of an instance lockout reset (you and your own bots).
+#                     Values above 214748 are clamped.
+#        Default:     10
+
+Chronomancer.GoldCostAmount = 10
+
+#
+#    Chronomancer.BotBoostCostAmount
+#        Description: Gold cost, per bot, of boosting one of your bots to the max player level.
+#                     Values above 214748 are clamped.
+#        Default:     1000
+
+Chronomancer.BotBoostCostAmount = 1000
+
+#
+#    Chronomancer.SkipOutlandCostAmount
+#        Description: Gold cost of the Outland skip.
+#                     Values above 214748 are clamped.
+#        Default:     5000
+
+Chronomancer.SkipOutlandCostAmount = 5000
+
+#
+#    Chronomancer.SkipOutlandFromLevel
+#        Description: Level at which the Outland skip is offered. 0 disables the Outland skip.
+#        Default:     58
+
+Chronomancer.SkipOutlandFromLevel = 58
+
+#
+#    Chronomancer.SkipOutlandToLevel
+#        Description: Level the character is boosted to by the Outland skip. Must be higher than
+#                     Chronomancer.SkipOutlandFromLevel and not above the server's MaxPlayerLevel.
+#                     The skip also raises weapon and other level-based skills to their new cap.
+#        Default:     68
+
+Chronomancer.SkipOutlandToLevel = 68
