@@ -4,9 +4,12 @@ Adds **Chronomancer Noriol**, a mysterious NPC who manipulates timelines on your
 
 ## Features
 
-- **Instance Lockout Reset** — Resets all raid and dungeon lockouts for you **and your Playerbots**.
-- **Playerbot Boost** — Instantly boost your Playerbots to level 80, one by one, with optional gold cost.
-- **Outland Skip** — If you're **level 58**, Noriol can boost your main character directly to level 68 to skip Outland entirely.
+- **Instance Lockout Reset** — Resets all raid and dungeon lockouts for you **and your own Playerbots** in your group.
+  Other real players (and bots belonging to them) are never touched. The lockout of the map you are standing in is kept.
+- **Playerbot Boost** — Instantly boost your own Playerbots to the max player level, one by one, with an optional
+  gold cost per bot. Gear, talents and spells are not handled; use the Playerbots commands for that.
+- **Outland Skip** — At level 58 (configurable), Noriol can boost your main character directly to level 68 to skip
+  Outland entirely. Weapon and other level-based skills are raised to their new cap.
 - **Lore-Friendly Dialogues** — Immersive NPC text and branching gossip options.
 - **Configurable Costs** for each service:
   - Instance reset: default **10 gold**
@@ -14,17 +17,34 @@ Adds **Chronomancer Noriol**, a mysterious NPC who manipulates timelines on your
   - Outland skip: default **5000 gold**
 - **Spell FX and Emotes** — Time-altering animations to enhance immersion.
 
+## Requirements
+
+- [mod-playerbots](https://github.com/mod-playerbots/mod-playerbots) and its AzerothCore fork. This module includes
+  Playerbots headers, so the build fails if mod-playerbots is missing or disabled.
+
 ## Installation
+
 - Checkout the module folder to your AzerothCore modules folder.
 - Run CMake and build AzerothCore.
-- Import the included SQL in the acore_world db to spawn Chronomancer Noriol in your world.
-- Adjust settings in `mod-playerbots-instance-reset.conf`.
+- The SQL in `data/sql/db-world/` (creature template and NPC texts) is applied automatically by the worldserver
+  database updater. If you disabled automatic module updates, import it into `acore_world` manually.
+- Copy `mod-playerbot-reset-instances.conf.dist` to `mod-playerbot-reset-instances.conf` and adjust the settings.
 
 ## Usage
-- Place Chronomancer Noriol anywhere in your world with **.npc add 190012**
+
+- The SQL only creates the NPC template; spawn Chronomancer Noriol wherever you like with **.npc add 190012**.
 
 ## Notes
-- Instance Reset and Playerbot Boost is available at level 80.
-- Outland skip is available during level 58.
+
+- Instance Reset and Playerbot Boost are available at the max player level (80 by default).
+- The Outland skip is available at `Chronomancer.SkipOutlandFromLevel` (58 by default).
+- `Chronomancer.EnableGoldCost = 0` makes every service free.
+
+## Upgrading
+
+- The config file was renamed from `mod-playerbots-instance-reset.conf` to `mod-playerbot-reset-instances.conf`.
+  Rename your existing file, or its settings are ignored and the defaults apply.
+- The NPC texts now come from `npc_text` (IDs 190012 and 190013). If you imported the old SQL by hand, make sure the
+  new SQL is applied, or the gossip window shows no text.
 
 Enjoy your adventures in time!

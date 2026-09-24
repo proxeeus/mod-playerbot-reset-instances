@@ -1,9 +1,0 @@
-#################################################################
-# Chronomancer Noriol Module Configuration
-#################################################################
-
-Chronomancer.EnableModule = 1
-Chronomancer.EnableGoldCost = 1
-Chronomancer.GoldCostAmount = 10
-Chronomancer.BotBoostCostAmount = 1000
-Chronomancer.SkipOutlandCostAmount = 5000
